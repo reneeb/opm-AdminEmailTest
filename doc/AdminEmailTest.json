@@ -1,0 +1,16 @@
+{
+    "name": "AdminEmailTest",
+    "version": "4.0.1",
+    "framework": [
+        "4.0.x"
+    ],
+    "vendor": {
+        "name":  "Perl-Services.de",
+        "url": "http://www.perl-services.de"
+    },
+    "license": "GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007",
+    "description" : {
+        "en": "Admins can paste emails to push them into the system",
+        "de": "Admins können Emails in das System bringen"
+    }
+}

@@ -1,0 +1,61 @@
+# --
+# Copyright (C) 2015 Perl-Services.de, http://perl-services.de
+# --
+# This software comes with ABSOLUTELY NO WARRANTY. For details, see
+# the enclosed file COPYING for license information (AGPL). If you
+# did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+# --
+
+<div class="MainBox ARIARoleMain LayoutFixedSidebar SidebarFirst">
+    <h1>[% Translate("Email Test") | html %]</h1>
+
+    <div class="SidebarColumn">
+        <div class="WidgetSimple">
+            <div class="Header">
+                <h2>[% Translate("Hint") | html %]</h2>
+            </div>
+            <div class="Content">
+                <p class="FieldExplanation">
+                    [% Translate("Here you can paste emails to push them in to the system.") | html %]
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ContentColumn">
+        <div class="WidgetSimple">
+            <div class="Header">
+                <h2>[% Translate("Options") | html %]</h2>
+            </div>
+            <div class="Content">
+
+                <form action="[% Env("CGIHandle") %]" method="post" class="Validate" id="AdminSelectBoxForm">
+                    <input type="hidden" name="Action" value="[% Env("Action") %]"/>
+                    <input type="hidden" name="Subaction" value="Test"/>
+                    <fieldset class="TableLike FixedLabelSmall">
+
+                        <label class="Mandatory" for="Email"><span class="Marker">*</span> [% Translate("Email") | html %]:</label>
+                        <div class="Field">
+                            <textarea name="Email" id="Email" rows="3" class="W100pc Validate_Required [% Data.EmailInvalid | html %]">[% Data.Email | html %]</textarea>
+                            <div id="EmailError" class="TooltipErrorMessage"><p>[% Translate("This field is required.") | html %]</p></div>
+                            <div id="EmailServerError" class="TooltipErrorMessage">
+                                <p>
+[% RenderBlockStart("FieldRequiredServerError") %]
+                                    [% Translate("This field is required.") | html %]
+[% RenderBlockEnd("FieldRequiredServerError") %]
+                                </p>
+                            </div>
+                        </div>
+                        <div class="Clear"></div>
+
+                        <div class="Field SpacingTop">
+                            <button class="Primary CallForAction" type="submit" id="Run" value="[% Translate("Submit Mail") | html %]"><span>[% Translate("Submit Mail") | html %]</span></button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="Clear"></div>
+</div>
