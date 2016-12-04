@@ -10,7 +10,7 @@ has no access to the commandline to run I<otrs.PostMaster.pl>.
 =head1 REPOSITORY AND BUGTRACKER
 
 The code repository and a bugtracker is available at
-L<http://github.com/reneeb/otrs-AdminEmailTest>.
+L<https://github.com/reneeb/otrs-AdminEmailTest>.
 
 =head1 AUTHOR AND LICENSE
 
