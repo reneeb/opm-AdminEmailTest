@@ -19,19 +19,19 @@ sub Data {
     my $Lang = $Self->{Translation} || {};
 
     # Custom/Kernel/Output/HTML/Templates/Standard/AdminEmailTest.tt
-    $Lang->{'Email Test'} = '';
+    $Lang->{'Email Test'} = 'E-Mail Test';
     $Lang->{'Hint'} = 'Hinweis';
-    $Lang->{'Here you can paste emails to push them in to the system.'} = '';
+    $Lang->{'Here you can paste emails to push them in to the system.'} = 'Hier können Sie E-Mails kopieren um Sie in das OTRS einzuspielen.';
     $Lang->{'Options'} = 'Optionen';
     $Lang->{'Email'} = 'E-Mail';
     $Lang->{'This field is required.'} = 'Dieses Feld wird benötigt.';
-    $Lang->{'Submit Mail'} = '';
+    $Lang->{'Submit Mail'} = 'Mail abschicken';
 
     # Kernel/Config/Files/AdminEmailTest.xml
     $Lang->{'Frontend module registration for the agent interface.'} =
         'Frontend-Modulregistrierung im Agent-Interface.';
-    $Lang->{'This module is part of the admin area of OTRS.'} = '';
-    $Lang->{'Paste emails to test the postmaster.'} = '';
+    $Lang->{'This module is part of the admin area of OTRS.'} = 'Dieses Modul ist Teil des OTRS Adminbereichs.';
+    $Lang->{'Paste emails to test the postmaster.'} = 'Kopiere Mails um den Postmaster zu testen';
 }
 
 1;
