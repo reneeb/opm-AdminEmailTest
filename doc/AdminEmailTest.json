@@ -1,6 +1,6 @@
 {
     "name": "AdminEmailTest",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "framework": [
         "5.0.x"
     ],
@@ -10,7 +10,8 @@
     },
     "license": "GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007",
     "description" : {
-        "en": "Admins can paste emails to push them into the system",
-        "de": "Admins können Emails in das System bringen"
+        "en": "Admins can paste emails to push them into the system.",
+        "de": "Admins können Emails in das System bringen.",
+        "hu": "Az adminisztrátorok e-maileket illeszthetnek be, hogy beküldjék azokat a rendszerbe."
     }
 }
