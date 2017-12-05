@@ -1,5 +1,5 @@
 # --
-# Copyright (C) 2015 Perl-Services.de, http://perl-services.de
+# Copyright (C) 2015 - 2017  Perl-Services.de, http://perl-services.de
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -58,15 +58,35 @@ sub Run {
         # if no errors occurred
         if ( !%Errors ) {
             my @Email = split /\x0d?\x0a/, $Param{Email};
+
+            my $CommunicationLogObject = $Kernel::OM->Create(
+                'Kernel::System::CommunicationLog',
+                ObjectParams => {
+                    Transport   => 'Email',
+                    Direction   => 'Incoming',
+                    AccountType => 'AdminInterface',
+                    AccountID   => 1,
+                },
+            );
+
+            $CommunicationLogObject->ObjectLogStart( ObjectLogType => 'Message' );
+
             eval {
-                $Kernel::OM->ObjectParamAdd(
-                    'Kernel::System::PostMaster' => {
-                        Email   => \@Email,
+                my %ObjectParams = (
+                    ObjectParams => {
+                        Email                  => \@Email,
+                        Trusted                => 1,
+                        CommunicationLogObject => $CommunicationLogObject,
                     },
                 );
 
-                my @Return = $Kernel::OM->Get('Kernel::System::PostMaster')->Run();
+                my $Object = $Kernel::OM->Create('Kernel::System::PostMaster', %ObjectParams );
+                $Object->Run();
             };
+
+            $CommunicationLogObject->CommunicationStop(
+                Status => 'Successful',
+            );
         }
         else {
 
